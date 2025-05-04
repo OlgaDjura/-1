@@ -1,0 +1,7 @@
+@use '../helpers/_index' as *;
+
+.number-big {
+    font-family: var(--font-family-h);
+    font-weight: 200;
+    font-size: fluid(30, 25);
+}

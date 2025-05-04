@@ -1,0 +1,80 @@
+@use '../helpers/_index' as *;
+
+.about-us {
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: rem(50);
+
+        @include laptop {
+            grid-template-columns: repeat(2, 1fr);
+            gap: rem(10) ;
+        }
+        @include mobile {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: column;
+        row-gap: fluid(100, 10);
+
+        @include laptop {
+        align-items: center;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include laptop {
+            padding: fluid(50, 20);
+        }
+    }
+
+    &__item {
+        padding-bottom: fluid(20, 15);
+        border-bottom: var(--border);
+    }
+
+    &__banner-1 {
+        &--image {
+            width: 100%;
+            height: fluid(724, 524);
+            object-fit: cover;
+            flex-shrink: 0; 
+            //aspect-ratio: 1 / 1; /* или 4 / 5 */
+            
+            
+        }
+        .image-laptop {
+            @include laptop {
+            @include visually-hidden;
+                
+            }
+        }
+    }
+
+    &__icon {
+        svg{
+            width: fluid(38, 28);
+            height: fluid(37, 27);
+        }
+        display: inline-block;
+        padding-right: fluid(10, 7);
+        
+    }
+
+    &__button {
+
+        @include laptop {
+            width: fluid(300, 250);
+            height: fluid(50,  45);
+            
+        }
+    }
+}

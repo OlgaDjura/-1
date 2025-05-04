@@ -1,0 +1,51 @@
+@use '../helpers/_index' as *;
+
+.hero {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include laptop {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        row-gap: fluid(30, 15);
+
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        row-gap: fluid(30, 20);
+    }
+
+    &__button {
+        max-width: rem(191);
+    }
+
+    &__banner {
+        
+        &-image {
+            min-width: rem(763);
+            min-height: rem(806);
+            object-fit: cover;
+            flex-shrink: 0;
+            
+
+            @include laptop {
+                min-width: fluid(538, 315);
+                min-height: fluid(690, 320);
+            }
+            
+        }
+    }
+
+    &__list-circle {
+        svg {
+        width: fluid(28, 18);
+        height: fluid(28, 18);
+        padding-right: fluid(10, 7);
+        }
+    }
+}

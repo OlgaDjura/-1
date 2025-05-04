@@ -1,0 +1,34 @@
+@use '../helpers/_index' as *;
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem(8) rem(20) ;
+    font-size: fluid(18, 16);
+    color: var(--color-dark-15);
+    background-color: var(--color-light);
+    //border: var(--border);
+    border-radius: rem(4);
+
+    
+    @include hover {
+        color: var(--color-light);
+        background-color: var(--color-dark-20);
+        border-color: var(--color-accent);
+    }
+
+    &-accent {
+        color: var(--color-dark);
+        font-weight: 500;
+        background-color: var(--color-accent);
+        border-color: var(--color-accent);
+        border-radius: rem(8);
+    }
+
+    &-dark-gray {
+        background-color: var(--color-dark-15);
+        color: var(--color-light);
+    }
+
+}

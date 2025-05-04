@@ -1,0 +1,100 @@
+@use '../helpers/_index' as *;
+
+.form {
+    &__body {
+        display: grid;
+        grid-template-columns: 60% 1fr;
+        background-color: var(--color-light);
+        border-radius: fluid(30, 15);
+        color: var(--color-dark-15);
+        padding: 0;
+        overflow-x: hidden;
+        
+        position: relative; // ДОБАВЛЕНО
+        overflow: visible;  // ДОБАВЛЕНО
+        isolation: isolate; // ДОБАВЛЕНО — помогает избежать "обрезаний" по z-index
+
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__text {
+        padding: fluid(100, 50);
+        display: flex;
+        flex-direction: column;
+        row-gap: fluid(30, 18);
+    }
+
+    &__contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: fluid(20, 12);
+
+        input {
+            width: 90%;
+            height: fluid(40, 30);
+            border-color: var(--color-beige-1);
+            padding: fluid(10, 7);
+        }
+    }
+
+    &__agreement {
+        display: flex;
+        align-items: center; // выравнивает по вертикали
+        gap: fluid(10, 7); // отступ между чекбоксом и текстом
+        font-size: fluid(14, 10); // уменьшаем размер текста, чтобы ничего не раздувало
+        input[type="checkbox"] {
+            width: rem(16);
+            height: rem(16);
+            margin: 0; // убираем лишние отступы
+        }
+    }
+
+    &__images {
+        position: relative;
+        z-index: 0;
+        border-radius: fluid(30, 15);
+        
+
+        @include tablet {
+            @include visually-hidden;
+        }
+    }
+
+    &__image-1 {
+        display: block;
+        margin: 0;
+        width: 100%;
+        height: fluid(628, 328);
+        object-fit: cover;
+        border-radius: fluid(30, 15);
+        
+
+    }
+
+    &__image-2 {
+        position: absolute;
+        top: rem(-90); // подними вверх на нужную высоту
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: fluid(723, 450);
+        z-index: 10; // чтобы точно была сверху
+
+        @include laptop {
+            @include visually-hidden;
+        }
+
+    }
+
+    &__button {
+        width: fluid(400, 300);
+        height: fluid(50, 40);
+    }
+}
+
+
+

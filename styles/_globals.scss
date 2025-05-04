@@ -1,0 +1,73 @@
+@use './helpers/_index' as *;
+
+html {
+    &.is-lock {
+        overflow: hidden;
+    }
+}
+body {
+    @include fluid-text(18, 12);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-family-base);
+    letter-spacing: -0.03em;
+    background-color: var(--color-dark-15);
+    color: var(--color-light);
+    
+}
+
+main {
+    flex-grow: 1;
+}
+
+section {
+    margin-bottom: fluid(100, 50);
+    scroll-margin-top: 120px; /* высота шапки + немного запаса */
+}
+
+
+
+h1, .h1 {
+    @include fluid-text(40, 20);
+    line-height: 1.2;
+    font-family: var(--font-family-h)
+}
+h2, .h2 {
+    @include fluid-text(35, 15);
+    line-height: 1.3;
+    font-family: var(--font-family-h);
+}
+
+a, button, label, input, textarea, select, svg * {
+    transition-duration: var(--transition-duration);
+}
+/*
+a {
+    color: inherit;
+    @include hover {
+        color: var(--color-accent);
+    }
+
+    &[class] {
+        text-decoration: none;
+    }
+}*/
+
+:focus-visible {
+    outline: rem(2) dashed var(--color-light);
+    outline-offset: rem(4);
+    transition-duration: 0s !important;
+}
+
+a, button {
+    &[aria-label] {
+        position: relative;
+
+        &::before {
+            @include abs-center;
+            @include square(rem(44));
+
+            content: '';
+        }
+    }
+}

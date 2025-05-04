@@ -1,0 +1,57 @@
+@use '../helpers/_index' as *;
+
+.footer {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: rem(2) solid var(--color-beige-1);
+        border-top: rem(2) solid var(--color-beige-1);
+
+        &--list {
+            display: flex;
+            gap: fluid(80, 30);
+            padding: fluid(30, 10);
+
+        }
+        &_item {
+            font-size: fluid(30, 15);
+        }
+    }
+
+    &__logo {
+        font-size: fluid(36, 25);
+    }
+
+    &__contacts {
+        display: flex;
+        justify-content: space-between;
+        padding: fluid(30, 20);
+
+        @include mobile {
+            flex-direction: column;
+            gap: rem(10);
+        }
+    }
+
+    &__menu-list {
+        display: flex;
+        gap: fluid(25, 15);
+    }
+
+    &__button {
+        width: fluid(200, 120);
+        height: fluid(70, 40);
+    }
+
+    &__copyright {
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
